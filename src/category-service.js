@@ -14,13 +14,12 @@ class CategoryService {
           cat["quizzes"].forEach(quiz =>{
             const q = new Quiz(quiz)
             q.appendQuizToDom()
+            cat["questions"][0].forEach(question =>{
+              const ques = new Question(question)
+              ques.appendQuestionToDom()
+            })
           })
-          // c.appendToDom()
         })
       });
   }
-
-  // getQuizFromCategory(){
-
-  // }
 }

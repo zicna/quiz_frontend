@@ -9,7 +9,7 @@ class Quiz{
         const div = document.createElement("div")
         div.innerHTML = `
         <span style="display:none"> ${this.id}</span>
-        <span>${this.name}</span>
+        <span><b>${this.name}</b></span>
         <span style="display:none">${this.category_id}</span>
         `
         categoryContainer.lastChild.appendChild(div)
