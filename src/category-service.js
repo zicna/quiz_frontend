@@ -17,6 +17,12 @@ class CategoryService {
             cat["questions"][0].forEach(question =>{
               const ques = new Question(question)
               ques.appendQuestionToDom()
+              cat["options"][0].forEach(optionArray => {
+                optionArray.forEach(option =>{
+                  const o = new Option(option)
+                  o.appendOptionToDom()
+                })
+              })
             })
           })
         })

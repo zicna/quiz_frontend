@@ -5,7 +5,6 @@ class Quiz{
         this.category_id = category_id
     }
     appendQuizToDom(){
-        // debugger
         const div = document.createElement("div")
         div.innerHTML = `
         <span style="display:none"> ${this.id}</span>
