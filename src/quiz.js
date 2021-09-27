@@ -8,11 +8,10 @@ class Quiz{
         // debugger
         const div = document.createElement("div")
         div.innerHTML = `
-        <spam> ${this.id}</spam>
-        <spam>${this.name}</spam>
-        <spam>${this.category_id}</spam>
+        <span style="display:none"> ${this.id}</span>
+        <span>${this.name}</span>
+        <span style="display:none">${this.category_id}</span>
         `
-        // debugger
         categoryContainer.lastChild.appendChild(div)
     }
 }
