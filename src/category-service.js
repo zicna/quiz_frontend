@@ -11,6 +11,11 @@ class CategoryService {
         data.forEach(cat => {
           const c = new Category(cat)
           c.appendToDom()
+          cat["quizzes"].forEach(quiz =>{
+            const q = new Quiz(quiz)
+            q.appendQuizToDom()
+          })
+          // c.appendToDom()
         })
       });
   }

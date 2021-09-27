@@ -6,7 +6,7 @@ class Category{
     appendToDom(){
         const div = document.createElement("div")
         div.innerHTML = `
-        <spam>${this.name}</spam>
+        <h5>${this.name}</h5>
         `
         categoryContainer.appendChild(div)
     }
