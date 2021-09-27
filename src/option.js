@@ -7,13 +7,14 @@ class Option{
     }
     appendOptionToDom(){
         const div = document.createElement("div")
+        div.setAttribute("id", `option-${this.id}`)
         div.innerHTML = `
-        <span style="display:none"> ${this.id}</span>
-        <span><b>${this.content}</b></span>
-        <span style="display:none">${this.question_id}</span>
-        <span style="display:none">${this.is_correct}</span>
-
+            <span style="display:none"> ${this.id}</span>
+            <span><b>${this.content}</b></span>
+            <span style="display:none">${this.question_id}</span>
+            <span style="display:none">${this.is_correct}</span>
         `
-        categoryContainer.lastChild.appendChild(div)
+        const parentDiv = document.getElementById(`question-${this.question_id}`)
+        parentDiv.appendChild(div)
     }
 }

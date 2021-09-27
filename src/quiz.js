@@ -6,11 +6,13 @@ class Quiz{
     }
     appendQuizToDom(){
         const div = document.createElement("div")
+        div.setAttribute("id", `quiz-${this.id}`)
         div.innerHTML = `
-        <span style="display:none"> ${this.id}</span>
-        <span><b>${this.name}</b></span>
-        <span style="display:none">${this.category_id}</span>
+            <span style="display:none"> ${this.id}</span>
+            <h4>${this.name}</h4>
+            <span style="display:none">${this.category_id}</span>
         `
-        categoryContainer.lastChild.appendChild(div)
+        const parentDiv = document.getElementById(`category-${this.category_id}`)
+        parentDiv.appendChild(div)
     }
 }

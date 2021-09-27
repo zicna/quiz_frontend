@@ -5,9 +5,13 @@ class Category{
     }
     appendToDom(){
         const div = document.createElement("div")
+        div.setAttribute("id", `category-${this.id}`)
         div.innerHTML = `
-        <h5>${this.name}</h5>
+            <h5>${this.name}</h5>
         `
         categoryContainer.appendChild(div)
+    }
+    handleClickOnCategory(){
+        
     }
 }
