@@ -7,21 +7,19 @@ class CategoryService {
     fetch(`${this.port}/categories`)
       .then(response=> response.json())
       .then(data=> {
-        // 
+        // debugger
         data.forEach(cat => {
           const c = new Category(cat)
           c.appendToDom()
           cat["quizzes"].forEach(quiz =>{
             const q = new Quiz(quiz)
             q.appendQuizToDom()
-            cat["questions"][0].forEach(question =>{
+            quiz["questions"].forEach(question =>{
               const ques = new Question(question)
               ques.appendQuestionToDom()
-              cat["options"][0].forEach(optionArray => {
-                optionArray.forEach(option =>{
-                  const o = new Option(option)
-                  o.appendOptionToDom()
-                })
+              question["options"].forEach(option => {
+                const o = new Option(option)
+                o.appendOptionToDom()
               })
             })
           })
