@@ -14,24 +14,38 @@ class Quiz {
     button.innerHTML = "Start the Quiz";
     button.addEventListener("click", this.handleQuizClick);
 
+    const questionContainer = document.createElement("div");
+    questionContainer.setAttribute("class", "question-container");
+    questionContainer.setAttribute("id", `q-q-${this.id}`);
+    questionContainer.setAttribute("style", "display:none");
+
     div.innerHTML = `
             <span style="display:none"> ${this.id}</span>
             <h4>${this.name}</h4>
             <span style="display:none">${this.category_id}</span>
         `;
     div.appendChild(button);
+    div.appendChild(questionContainer);
 
     mainQuizDiv.appendChild(div);
   }
 
   handleQuizClick(event) {
-    debugger
+    // debugger
     //*we want all other quizzes to disappear
-    if(event.target.innerHTML === "Start the Quiz")
-        let parentSibiling = event.target.parentElement.nextElementSibling;
-        while (parentSibiling) {
-          parentNextSibiling.style.display = "none";
-          parentNextSibiling = parentSibiling.nextElementSibling;
-        }
+    if (event.target.innerText === "Start the Quiz") {
+      event.target.innerText = "Close";
+      const parentEl = event.target.parentElement;
+      parentEl.setAttribute("class", "active");
+      // debugger
+      event.target.nextElementSibling.style.display="block";
+    } else if (event.target.innerText === "Close") {
+      event.target.innerText = "Start the Quiz";
+      const parentEl = event.target.parentElement;
+      parentEl.classList.remove("active");
+      event.target.nextElementSibling.style.display = "none";
+    }
   }
 }
+
+// . style. display = "none"
