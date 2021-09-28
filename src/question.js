@@ -8,6 +8,7 @@ class Question{
     appendQuestionToDom(){
         const div = document.createElement("div")
         div.setAttribute("id", `question-${this.id}`)
+        div.setAttribute("style", "display:none")
         div.innerHTML = `
             <span style="display:none"> ${this.id}</span>
             <span>${this.content}</span>

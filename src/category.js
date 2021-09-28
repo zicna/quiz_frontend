@@ -6,6 +6,8 @@ class Category{
     appendToDom(){
         const div = document.createElement("div")
         div.setAttribute("id", `category-${this.id}`)
+        
+
         const btn = document.createElement("button")
         btn.innerHTML = `
             See Quizzes
@@ -20,10 +22,19 @@ class Category{
     handleClickBtnCategory(event){
         if(event.target.innerText === "See Quizzes") {
             event.target.innerText = "See Less"
-            event.target.nextElementSibling.style.display = "block"
+            let nextSibiling = event.target.nextElementSibling
+            while(nextSibiling){
+                nextSibiling.style.display = "block"
+                nextSibiling = nextSibiling.nextElementSibling
+            }
+            
         } else if(event.target.innerText === "See Less"){
             event.target.innerText = "See Quizzes"
-            event.target.nextElementSibling.style.display = "none"
+            let nextSibiling = event.target.nextElementSibling
+            while(nextSibiling){
+                nextSibiling.style.display = "none"
+                nextSibiling = nextSibiling.nextElementSibling
+            }
         }
 
     }
