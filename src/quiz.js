@@ -12,7 +12,7 @@ class Quiz {
       class: "btn",
       innerHTML: "Start the Quiz",
     });
-    buttonStart.addEventListener("click", this.handleQuizClick);
+    buttonStart.addEventListener("click", this.handleQuizStart);
 
     //* creating new button for showing more info on quiz
     const buttonAbout = document.createElement("button");
@@ -21,7 +21,7 @@ class Quiz {
       class: "btn",
       innerHTML: "About the quiz",
     });
-    buttonAbout.addEventListener("click", this.handleAboutClick);
+    buttonAbout.addEventListener("click", this.handleQuizAbout);
 
     //* creating div container where all questions for given quiz will live
     const questionContainer = document.createElement("div");
@@ -39,7 +39,7 @@ class Quiz {
       innerHTML: `
         <span style="display:none"> ${this.id}</span>
         <h4>${this.name}</h4>
-        <p style="display:none">Description: ${this.description}</p>
+        <p id="p-about-${this.id}"style="display:none">Description: ${this.description}</p>
         <span style="display:none">${this.category_id}</span>
       `,
     });
@@ -52,7 +52,7 @@ class Quiz {
     mainQuizDiv.appendChild(div);
   }
 
-  handleQuizClick(event) {
+  handleQuizStart(event) {
     //*we want all other quizzes to disappear
     if (event.target.innerText === "Start the Quiz") {
       event.target.innerText = "Close";
@@ -68,8 +68,18 @@ class Quiz {
     }
   }
 
-  handleAboutClick(event) {
-    debugger;
+  handleQuizAbout(event) {
+    if(event.target.innerText === "About the quiz"){
+      event.target.innerText = "See less"
+      const id = Number(this.id.split("-")[2])
+      const p = document.getElementById(`p-about-${id}`)
+      p.style.display = "block"
+    }else if(event.target.innerText === "See less"){
+      event.target.innerText = "About the quiz"
+      const id = Number(this.id.split("-")[2])
+      const p = document.getElementById(`p-about-${id}`)
+      p.style.display = "none"
+    }
   }
 }
 
