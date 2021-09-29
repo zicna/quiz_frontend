@@ -55,6 +55,7 @@ class Quiz {
   handleQuizStart(event) {
     //*we want all other quizzes to disappear
     if (event.target.innerText === "Start the Quiz") {
+      debugger
       event.target.innerText = "Close";
       const parentEl = event.target.parentElement;
       parentEl.setAttribute("class", "active");
