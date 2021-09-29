@@ -1,10 +1,10 @@
 class QuizService {
   constructor(port) {
-    this.url = port + "/quizzes";
+    this.port = port;
   }
 
   getQuizzes() {
-    fetch(this.url)
+    fetch(`${this.port}/quizzes`)
       .then((response) => response.json())
       .then((data) => {
         // debugger;
@@ -22,4 +22,20 @@ class QuizService {
         })
       });
   }
+  // sendQuiz(){
+  //   debugger
+  //   const url = this.port + "/responses"
+  //   const configObject = {
+  //     method: "POST",
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       Accept: 'application/json'
+  //     },
+  //     body: {
+
+  //     }
+  //   }
+  //   fetch(url, configObject)
+  // }
+
 }
