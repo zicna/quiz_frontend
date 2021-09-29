@@ -24,12 +24,20 @@ class Quiz {
     buttonAbout.addEventListener("click", this.handleQuizAbout);
 
     //* creating div container where all questions for given quiz will live
-    const questionContainer = document.createElement("div");
+    const questionContainer = document.createElement("form");
     Object.assign(questionContainer, {
       id: `q-q-${this.id}`,
       class: "question-container",
       style: "display:none",
     });
+    const submit = document.createElement("input");
+    Object.assign(submit, {
+      type: "submit",
+      value: "Submit your Answer",
+    });
+    // submit.addEventListener("click", this.handleSubmit);
+    questionContainer.appendChild(submit);
+    questionContainer.addEventListener("submit", this.handleSubmit )
 
     //* creating main div
     const div = document.createElement("div");
@@ -55,40 +63,49 @@ class Quiz {
   handleQuizStart(event) {
     //*we want all other quizzes to disappear
     if (event.target.innerText === "Start the Quiz") {
+      // debugger
+      // event.target.parentElement.lastElementChild
       event.target.innerText = "Close";
       const parentEl = event.target.parentElement;
       parentEl.setAttribute("class", "active");
-      //* we are calling helper to get all sibilings of parent element of button 
-      const siblings = Helper.getAllSiblings(parentEl)
+      parentEl.lastElementChild.style.display = "block";
+      //* we are calling helper to get all sibilings of parent element of button
+      const siblings = Helper.getAllSiblings(parentEl);
       //*we are setting style for all buttons parent element siblings to "none" except for actual parent element
-      siblings.map(element => {
-        if(element !== parentEl){
-          element.style.display = "none"
+      siblings.map((element) => {
+        if (element !== parentEl) {
+          element.style.display = "none";
         }
-      })
+      });
     } else if (event.target.innerText === "Close") {
       event.target.innerText = "Start the Quiz";
       const parentEl = event.target.parentElement;
       parentEl.classList.remove("active");
-      const siblings = Helper.getAllSiblings(parentEl)
-      siblings.map(element => {
-          element.style.display = "block"
-      })
+      parentEl.lastElementChild.style.display = "none";
+      const siblings = Helper.getAllSiblings(parentEl);
+      siblings.map((element) => {
+        element.style.display = "block";
+      });
     }
   }
 
   handleQuizAbout(event) {
-    if(event.target.innerText === "About the quiz"){
-      event.target.innerText = "See less"
-      const id = Number(this.id.split("-")[2])
-      const p = document.getElementById(`p-about-${id}`)
-      p.style.display = "block"
-    }else if(event.target.innerText === "See less"){
-      event.target.innerText = "About the quiz"
-      const id = Number(this.id.split("-")[2])
-      const p = document.getElementById(`p-about-${id}`)
-      p.style.display = "none"
+    if (event.target.innerText === "About the quiz") {
+      event.target.innerText = "See less";
+      const id = Number(this.id.split("-")[2]);
+      const p = document.getElementById(`p-about-${id}`);
+      p.style.display = "block";
+    } else if (event.target.innerText === "See less") {
+      event.target.innerText = "About the quiz";
+      const id = Number(this.id.split("-")[2]);
+      const p = document.getElementById(`p-about-${id}`);
+      p.style.display = "none";
     }
   }
-}
 
+  handleSubmit(event) {
+    event.preventDefault()
+
+   
+  }
+}
