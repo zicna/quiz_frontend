@@ -7,32 +7,44 @@ class Quiz {
   appendQuizToDom() {
     //*creating new button for starting the quiz
     const buttonStart = document.createElement("button");
-    buttonStart.setAttribute("id", `btn-start-${this.id}`);
-    buttonStart.setAttribute("class", "btn");
-    buttonStart.innerHTML = "Start the Quiz";
+    Object.assign(buttonStart, {
+      id: `btn-start-${this.id}`,
+      class: "btn",
+      innerHTML: "Start the Quiz",
+    });
     buttonStart.addEventListener("click", this.handleQuizClick);
-    //*creating new button for showing more info on quiz
+
+    //* creating new button for showing more info on quiz
     const buttonAbout = document.createElement("button");
-    buttonAbout.setAttribute("id", `btn-about-${this.id}`);
-    buttonAbout.setAttribute("class", "btn");
-    buttonAbout.innerHTML = "About the quiz";
+    Object.assign(buttonAbout, {
+      id: `btn-about-${this.id}`,
+      class: "btn",
+      innerHTML: "About the quiz",
+    });
     buttonAbout.addEventListener("click", this.handleAboutClick);
-    //*creating div container where all questions for given quiz will live
+
+    //* creating div container where all questions for given quiz will live
     const questionContainer = document.createElement("div");
-    questionContainer.setAttribute("class", "question-container");
-    questionContainer.setAttribute("id", `q-q-${this.id}`);
-    questionContainer.setAttribute("style", "display:none");
-    //*creating main div 
+    Object.assign(questionContainer, {
+      id: `q-q-${this.id}`,
+      class: "question-container",
+      style: "display:none",
+    });
+
+    //* creating main div
     const div = document.createElement("div");
-    div.setAttribute("id", `quiz-${this.id}`);
-    div.setAttribute("class", "quiz-container");
-    div.innerHTML = `
-            <span style="display:none"> ${this.id}</span>
-            <h4>${this.name}</h4>
-            <p style="display:none">Description: ${this.description}</p>
-            <span style="display:none">${this.category_id}</span>
-        `;
-    //* adding all elements to the main div
+    Object.assign(div, {
+      id: `quiz-${this.id}`,
+      class: "quiz-container",
+      innerHTML: `
+        <span style="display:none"> ${this.id}</span>
+        <h4>${this.name}</h4>
+        <p style="display:none">Description: ${this.description}</p>
+        <span style="display:none">${this.category_id}</span>
+      `,
+    });
+
+    //*  adding all elements to the main div
     div.appendChild(buttonStart);
     div.appendChild(buttonAbout);
     div.appendChild(questionContainer);
@@ -41,7 +53,6 @@ class Quiz {
   }
 
   handleQuizClick(event) {
-    // debugger
     //*we want all other quizzes to disappear
     if (event.target.innerText === "Start the Quiz") {
       event.target.innerText = "Close";
@@ -59,7 +70,6 @@ class Quiz {
 
   handleAboutClick(event) {
     debugger;
-
   }
 }
 
