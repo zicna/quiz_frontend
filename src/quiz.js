@@ -1,30 +1,40 @@
 class Quiz {
-  constructor({ id, name }) {
+  constructor({ id, name, description }) {
     this.id = id;
     this.name = name;
+    this.description = description;
   }
   appendQuizToDom() {
-    const div = document.createElement("div");
-    div.setAttribute("id", `quiz-${this.id}`);
-    div.setAttribute("class", "quiz-container");
-
-    const button = document.createElement("button");
-    button.setAttribute("id", `btn-start-${this.id}`);
-    button.setAttribute("class", "btn");
-    button.innerHTML = "Start the Quiz";
-    button.addEventListener("click", this.handleQuizClick);
-
+    //*creating new button for starting the quiz
+    const buttonStart = document.createElement("button");
+    buttonStart.setAttribute("id", `btn-start-${this.id}`);
+    buttonStart.setAttribute("class", "btn");
+    buttonStart.innerHTML = "Start the Quiz";
+    buttonStart.addEventListener("click", this.handleQuizClick);
+    //*creating new button for showing more info on quiz
+    const buttonAbout = document.createElement("button");
+    buttonAbout.setAttribute("id", `btn-about-${this.id}`);
+    buttonAbout.setAttribute("class", "btn");
+    buttonAbout.innerHTML = "About the quiz";
+    buttonAbout.addEventListener("click", this.handleAboutClick);
+    //*creating div container where all questions for given quiz will live
     const questionContainer = document.createElement("div");
     questionContainer.setAttribute("class", "question-container");
     questionContainer.setAttribute("id", `q-q-${this.id}`);
     questionContainer.setAttribute("style", "display:none");
-
+    //*creating main div 
+    const div = document.createElement("div");
+    div.setAttribute("id", `quiz-${this.id}`);
+    div.setAttribute("class", "quiz-container");
     div.innerHTML = `
             <span style="display:none"> ${this.id}</span>
             <h4>${this.name}</h4>
+            <p style="display:none">Description: ${this.description}</p>
             <span style="display:none">${this.category_id}</span>
         `;
-    div.appendChild(button);
+    //* adding all elements to the main div
+    div.appendChild(buttonStart);
+    div.appendChild(buttonAbout);
     div.appendChild(questionContainer);
 
     mainQuizDiv.appendChild(div);
@@ -38,13 +48,18 @@ class Quiz {
       const parentEl = event.target.parentElement;
       parentEl.setAttribute("class", "active");
       // debugger
-      event.target.nextElementSibling.style.display="block";
+      event.target.nextElementSibling.style.display = "block";
     } else if (event.target.innerText === "Close") {
       event.target.innerText = "Start the Quiz";
       const parentEl = event.target.parentElement;
       parentEl.classList.remove("active");
       event.target.nextElementSibling.style.display = "none";
     }
+  }
+
+  handleAboutClick(event) {
+    debugger;
+
   }
 }
 
