@@ -55,17 +55,25 @@ class Quiz {
   handleQuizStart(event) {
     //*we want all other quizzes to disappear
     if (event.target.innerText === "Start the Quiz") {
-      debugger
       event.target.innerText = "Close";
       const parentEl = event.target.parentElement;
       parentEl.setAttribute("class", "active");
-      // debugger
-      event.target.nextElementSibling.style.display = "block";
+      //* we are calling helper to get all sibilings of parent element of button 
+      const siblings = Helper.getAllSiblings(parentEl)
+      //*we are setting style for all buttons parent element siblings to "none" except for actual parent element
+      siblings.map(element => {
+        if(element !== parentEl){
+          element.style.display = "none"
+        }
+      })
     } else if (event.target.innerText === "Close") {
       event.target.innerText = "Start the Quiz";
       const parentEl = event.target.parentElement;
       parentEl.classList.remove("active");
-      event.target.nextElementSibling.style.display = "none";
+      const siblings = Helper.getAllSiblings(parentEl)
+      siblings.map(element => {
+          element.style.display = "block"
+      })
     }
   }
 
@@ -84,4 +92,3 @@ class Quiz {
   }
 }
 
-// . style. display = "none"
