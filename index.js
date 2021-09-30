@@ -11,6 +11,10 @@ const userForm = document.getElementById("user-form");
 const username = document.getElementById("username");
 const userEmail = document.getElementById("email");
 const userPassword = document.getElementById("password");
+//*HTML const for displaying user
+const userDisplayDIv = document.getElementById("user-record")
+const userDisplayUsername = document.getElementById("user-username")
+const userRecords = document.getElementById("user-records")
 
 // let oldUser;
 // function getRadioValue(arr) {
@@ -27,4 +31,5 @@ function handleSubmit(event) {
 //   oldUser = getRadioValue(arrOfRadioBtns);
 
   usersCall.getUser();
+  event.target.reset()
 }
