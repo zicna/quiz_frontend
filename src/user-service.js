@@ -23,6 +23,9 @@ class UserService {
 
     fetch(this.url, configObject)
       .then((response) => response.json())
-      .then((data) => console.log(data));
+      .then((data) => {
+          const user = new User(data)
+          user.appendUserToDom()
+        });
   }
 }
