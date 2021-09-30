@@ -18,7 +18,7 @@
                 <img src="https://media.istockphoto.com/photos/ruby-programming-language-picture-id1158224159?k=20&m=1158224159&s=170667a&w=0&h=TOo5iChiq5b-bGggL34mry-61NMV1LocPqIVOfk3PFU=" alt="Laptop abd RUby">
             </div>
             <div class="form-container column">
-                <fieldset>
+                <fieldset id="user-form">
                     <legend>User info</legend>
                     <form>
                         <label for="username">Username:</label>
@@ -31,21 +31,22 @@
                         <input type="password" id="password" name="password">
                         <div class="checks">
                             <p>Do you have account with us?</p>
-                            <input type="checkbox" name="old-user" id="old-user-yes">
+                            <input type="radio" name="old-user" id="old-user-yes">
                             <label for="old-user-yes">Yes</label>
-                            <input type="checkbox" name="old-user" id="old-user-no">
+                            <input type="radio" name="old-user" id="old-user-no">
                             <label for="old-user-no">No</label>
                         </div>
-                        <input type="submit" value="Submit">
+                        <input type="submit" value="Get your account" class="btn" id="btn-start">
                     </form>
                 </fieldset>
+                <div class="column" id="user-record"></div>
             </div>
         </div>
         <div class="footer-container">
             <h5>Footer</h5>
         </div>
     </div>
-
+    <script src="src/user-service.js"></script>
     <script src="src/helper.js"></script>
     <script src="src/option.js"></script>
     <script src="src/question.js"></script>
