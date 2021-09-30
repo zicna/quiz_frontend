@@ -1,3 +1,57 @@
+.container{
+    margin: 3rem;
+    padding: 2rem;
+    /* outline: 1px solid blue; */
+}
+.header-conteiner{
+    outline: 1px solid blue;
+    text-align: center;
+}
+.footer-container{
+    text-align: center;
+    outline: 1px solid blue;
+}
+/** style for form and form elements */
+.form-container{
+    outline: 1px solid blue;
+}
+fieldset{
+    margin: 2rem 0;
+    padding: 1em 2em;
+    border: solid 1px #ccc;
+    border-radius: 5px;
+    min-width: 200px;
+}
+legend{
+    font-size: 1.25rem;
+    padding: 0 .25em;
+    color: #999;
+}
+
+label {
+display: block;
+margin-top: 1em;
+}
+
+
+
+
+/* style for main image */
+.image-container{
+    outline: 1px solid blue;
+    
+}
+/* main container splited on to rows */
+.row {
+    display: flex;
+  }
+  
+  .column {
+    flex: 50%;
+  }
+
+
+/* active class */
 .active{
     border: 1px solid green;
 }
