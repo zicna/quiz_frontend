@@ -4,16 +4,20 @@
     /* outline: 1px solid blue; */
 }
 .header-conteiner{
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
     text-align: center;
 }
 .footer-container{
     text-align: center;
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
 }
+/* ******************************************************* */
 /** style for form and form elements */
 .form-container{
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    /* background-color: rgb(236, 235, 235); */
 }
 fieldset{
     margin: 2rem 0;
@@ -22,23 +26,67 @@ fieldset{
     border-radius: 5px;
     min-width: 200px;
 }
+
 legend{
     font-size: 1.25rem;
     padding: 0 .25em;
     color: #999;
 }
-
+/** first for all labels and then overwrite in specific cases */
 label {
-display: block;
-margin-top: 1em;
+    display: block;
+    margin-top: 1em;
 }
 
+.checks label{
+    margin-top: 0;
+    display: inline;
+}
+label:first-of-type{
+    margin-top: 0;
+}
 
+input {
+    padding: .5em;
+    border: solid 1px #999;
+    border-radius: 4px;
+}
+
+.checks{
+    margin-bottom: 1em;
+}
+.checks p{
+    margin-bottom: 0;
+}
+input[type="radio"]{
+    margin-left: 1.5em;
+}
+
+input[type="radio"]:first-of-type{
+    margin-left: 0;
+}
+.btn-start {
+    border: 2px solid darkgray;
+    border-radius: 4px;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 0.8;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
+/* ******************************************************* */
+
+
+/* ******************************************************* */
+#user-record {
+    display: none;
+}
+
+/* ******************************************************* */
 
 
 /* style for main image */
 .image-container{
-    outline: 1px solid blue;
+    /* outline: 1px solid blue; */
     
 }
 /* main container splited on to rows */
