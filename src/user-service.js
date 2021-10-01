@@ -16,16 +16,17 @@ class UserService {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Accept: "application/json"
-    },
+        Accept: "application/json",
+      },
       body: JSON.stringify(userInfo),
     };
 
     fetch(this.url, configObject)
       .then((response) => response.json())
       .then((data) => {
-          const user = new User(data)
-          user.appendUserToDom()
-        });
+        debugger;
+        const user = new User(data);
+        user.appendUserToDom();
+      });
   }
 }
