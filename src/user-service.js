@@ -4,7 +4,6 @@ class UserService {
   }
 
   getUser() {
-    //   debugger
     const userInfo = {
       user: {
         username: username.value,
@@ -24,7 +23,6 @@ class UserService {
     fetch(this.url, configObject)
       .then((response) => response.json())
       .then((data) => {
-        debugger;
         const user = new User(data);
         user.appendUserToDom();
       });
