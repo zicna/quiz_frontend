@@ -29,23 +29,18 @@
                         
                         <label for="form-password">Password:</label>
                         <input type="password" id="password" name="password">
-                        <!-- <div class="checks">
-                            <p>Do you have account with us?</p>
-                            <input type="radio" name="old-user" id="old-user-yes" required>
-                            <label for="old-user-yes">Yes</label>
-                            <input type="radio" name="old-user" id="old-user-no">
-                            <label for="old-user-no">No</label>
-                        </div> -->
+                        
                         <input type="submit" value="Get your account" class="btn" id="btn-start">
                     </form>
                 </fieldset>
                 <div class="column" id="user-record">
-                    <p id="user-username"></p>
                     <div id="user-results">
-                        <fieldset>
-                            <legend>Takes</legend>
-                            <p id="user-last-result"></p>
-                            <p id="user-best-result"></p>
+                        <h5 id="user-username"></h5>
+                        <fieldset id="user-results-fieldset">
+                            <legend >From database:</legend>
+                        </fieldset>
+                        <fieldset id="user-new-results-fieldset">
+                            <legend >New take:</legend>
                         </fieldset>
                     </div>
                     <ul id="user-records"></ul>
