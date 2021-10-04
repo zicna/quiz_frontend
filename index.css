@@ -82,6 +82,7 @@ input[type="submit"]{
 /* ******************************************************* */
 
 /* ******************************************************* */
+/** Style for user records new and db ones */
 #user-record {
   display: none;
 }
@@ -89,10 +90,27 @@ input[type="submit"]{
 #user-new-results-fieldset{
   display:none
 }
-
-
+/* ******************************************************* */
 
 /* ******************************************************* */
+/* *Style for quiz */
+
+#quiz-container{
+  display: none;
+}
+#quiz-form{
+  outline: 1px solid blue;
+  border: 2px solid darkgray;
+  border-radius: 4px;
+  padding-left: 1em;
+  padding-right: 1em;
+  font-size: 0.8;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+
+}
+/* ******************************************************* */
+
 
 /* style for main image */
 .image-container {
