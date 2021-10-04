@@ -16,8 +16,10 @@ const userDisplayDIv = document.getElementById("user-record")
 const userDisplayUsername = document.getElementById("user-username")
 const userRecords = document.getElementById("user-records")
 const userResults = document.getElementById("user-results")
-const userLastResult = document.getElementById("user-last-result")
-const userBestResult = document.getElementById("user-best-result")
+const userResultsFieldset = document.getElementById("user-results-fieldset")
+
+// const userLastResult = document.getElementById("user-last-result")
+// const userBestResult = document.getElementById("user-best-result")
 // let oldUser;
 // function getRadioValue(arr) {
 //   if (arr[0].checked) return true;
