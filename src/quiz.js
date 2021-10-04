@@ -1,8 +1,10 @@
 class Quiz {
-  constructor({ id, name, description }) {
+  constructor({ id, name, description, questions }) {
     this.id = id;
     this.name = name;
     this.description = description;
+    this.questions = questions.map(question => new Question(question))
+    debugger
   }
   appendQuizToDom() {
     //*creating new button for starting the quiz

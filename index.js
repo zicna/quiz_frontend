@@ -1,5 +1,6 @@
 const port = "http://localhost:3000";
 const usersCall = new UserService(port);
+const quizCall = new QuizService(port)
 
 // usersCall.getUser(port)
 
@@ -17,6 +18,8 @@ const userDisplayUsername = document.getElementById("user-username")
 const userRecords = document.getElementById("user-records")
 const userResults = document.getElementById("user-results")
 const userResultsFieldset = document.getElementById("user-results-fieldset")
+const userNewResultsFieldset = document.getElementById("user-new-results-fieldset")
+const btnNewTake = document.getElementById("btn-new-take")
 
 // const userLastResult = document.getElementById("user-last-result")
 // const userBestResult = document.getElementById("user-best-result")
@@ -36,4 +39,11 @@ function handleSubmit(event) {
 
   usersCall.getUser();
   event.target.reset()
+}
+
+btnNewTake.addEventListener("click", handleNewTakeClick)
+
+function handleNewTakeClick(event){
+  quizCall.getQuizzes()
+  // debugger
 }
