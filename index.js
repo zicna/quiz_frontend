@@ -21,6 +21,13 @@ const userResultsFieldset = document.getElementById("user-results-fieldset")
 const userNewResultsFieldset = document.getElementById("user-new-results-fieldset")
 const btnNewTake = document.getElementById("btn-new-take")
 
+// * HTML const for rendering quiz
+const quizContainer = document.getElementById("quiz-container")
+const quizForm = document.getElementById("quiz-form")
+const quizName = document.getElementById("quiz-name")
+const quizDescription = document.getElementById("quiz-description")
+const quizQuestionsList = document.getElementById("quiz-questions-list")
+
 // const userLastResult = document.getElementById("user-last-result")
 // const userBestResult = document.getElementById("user-best-result")
 // let oldUser;
@@ -44,6 +51,7 @@ function handleSubmit(event) {
 btnNewTake.addEventListener("click", handleNewTakeClick)
 
 function handleNewTakeClick(event){
+  btnNewTake.style.display = "none"
   quizCall.getQuizzes()
   // debugger
 }
