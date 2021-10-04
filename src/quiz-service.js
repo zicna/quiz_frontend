@@ -8,7 +8,8 @@ class QuizService {
       .then((response) => response.json())
       .then((data) => {
         // debugger
-        new Quiz(data)
+       const q = new Quiz(data);
+       q.appendQuizToDom()
       });
   }
   // sendQuiz(){
