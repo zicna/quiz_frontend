@@ -9,7 +9,6 @@ class Quiz {
   appendQuizToDom() {
     // *show quiz container, set quiz anme adn description
     quizContainer.style.display = "block";
-    // quizContainer.focus()
     quizName.innerText = `${this.name}`;
     quizDescription.innerText = `${this.description}`;
     //*iterate through quiz questions and add them to DOM
@@ -32,8 +31,8 @@ class Quiz {
         });
         const label = document.createElement("label");
         label.innerText = `${option.content}`;
+        label.appendChild(input);
         quizQuestionsList.appendChild(label);
-        quizQuestionsList.appendChild(input);
       });
     });
     const inputBtn = document.createElement("input");
@@ -49,43 +48,59 @@ class Quiz {
 
   handleQuizSubmit(event) {
     event.preventDefault();
-    const arrInputs = Array.from(event.target.elements);
-    let selectedInputs = [];
-    arrInputs.forEach((input) => {
-      if (input.type === "radio" && input.checked) {
-        selectedInputs.push(Object.assign({}, input.response));
+    frontPageDiv.style.display = "block";
+    btnSaveDB.style.display = "block";
+    const checkedInputs = Array.from()
+    let arrNodes = []
+    event.target.elements).filter((input) => {
+        if (input.type === "radio" && input.checked === true) {
+          Object.assign({}, input.response);
+        }
       }
-    });
+      debugger
+    
+    // let selectedInputs = [];
+    // checkedInputs.forEach((input) => {
+    //   if (input.type === "radio" && input.checked) {
+    //     selectedInputs.push(Object.assign({}, input.response));
+    //   }
+    // });
 
     quizForm.reset();
     quizContainer.style.display = "none";
     userNewResultsFieldset.style.display = "block";
     let newAnswers = 0;
-    selectedInputs.forEach(response => {
-      if (response.is_correct=== "true") {
-        return ++newAnswers};
+    checkedInputs.forEach((response) => {
+      debugger
+      if (response.is_correct === "true") {
+        return ++newAnswers;
+      }
     });
-    debugger
-    const p = document.createElement("p")
-    const s = document.createElement("span")
-    p.innerHTML = `new take: ${newAnswers} correct answers of ${selectedInputs.length} questions- `
-    const percentCorrect = Math.round(newAnswers / selectedInputs.length * 100)
-    s.innerHTML = `${percentCorrect} % correct`
-    p.appendChild(s)
-    userNewResultsFieldset.appendChild(p)
+    // debugger
+    const div = document.createElement("div");
+    const percentCorrect = Math.round(
+      (newAnswers / checkedInputs.length) * 100
+    );
+    // const btnSave = Object.assign(document.createElement("button"), {
+    //   class: "btn",
+    //   id: "save-new-take",
+    //   innerText: "Save New Take",
+    // });
+    // debugger
+    // btnSave.addEventListener("click", this.newQuiz)
 
-    const button = document.createElement("button")
-    Object.assign(button, {
-      class:"btn",
-      id: "save-new-take",
-      innerText: "Save New Take"
-    })
-    button.addEventListener("click", this.saveNewQuiz)
-    userNewResultsFieldset.appendChild(button)
+    div.innerHTML = `
+      <p>new take: ${newAnswers} correct answers of ${checkedInputs.length} questions- <span>${percentCorrect} % correct</span>
+      </p>
+    `;
+    // div.appendChild(btnSave)
+    userNewResultsFieldset.appendChild(div);
+
+    btnNewTake.innerText = "Another Try";
+    btnNewTake.style.display = "block";
   }
 
-  saveNewQuiz(){
-    debugger
-    console.log("heloo")
+  newQuiz(event) {
+    debugger;
   }
 }

@@ -8,47 +8,51 @@
     <title>Quiz app</title>
 </head>
 <body>
-    <div class="container" id="main-container">
-        <div class="header-conteiner">
-            <h3 class="quiz-header">Ruby Quiz</h3>
-            <h5>check your knowledge of basic programming concepts using the Ruby programming language</h5>
-        </div>
-        <div class="row">
-            <div class="image-container column">
-                <img src="https://media.istockphoto.com/photos/ruby-programming-language-picture-id1158224159?k=20&m=1158224159&s=170667a&w=0&h=TOo5iChiq5b-bGggL34mry-61NMV1LocPqIVOfk3PFU=" alt="Laptop abd RUby">
+    <div class="container">
+        <div id="front-page">
+            <div class="header-conteiner">
+                <h3 class="quiz-header">Ruby Quiz</h3>
+                <h5>check your knowledge of basic programming concepts using the Ruby programming language</h5>
             </div>
-            <div class="form-container column">
-                <fieldset id="user-form">
-                    <legend>User info</legend>
-                    <form>
-                        <label for="username">Username:</label>
-                        <input type="text" id="username" name="username" required>
-                        
-                        <label for="email">Email:</label>
-                        <input type="text" id="email" name="email" required>
-                        
-                        <label for="form-password">Password:</label>
-                        <input type="password" id="password" name="password">
-                        
-                        <input type="submit" value="Get your account" class="btn" id="btn-start">
-                    </form>
-                </fieldset>
-                <!-- !users records new and form db -->
-                <div class="column" id="user-record">
-                    <div id="user-results">
-                        <h5 id="user-username"></h5>
-                        <fieldset id="user-results-fieldset">
-                            <legend >From database:</legend>
-                        </fieldset>
-                        <button id="btn-new-take">New Take</button>
-                        <fieldset id="user-new-results-fieldset">
-                            <legend >New take:</legend>
-                        </fieldset>
-                    </div>
-                    <ul id="user-records"></ul>
+            <div class="row">
+                <div class="image-container column">
+                    <img src="https://media.istockphoto.com/photos/ruby-programming-language-picture-id1158224159?k=20&m=1158224159&s=170667a&w=0&h=TOo5iChiq5b-bGggL34mry-61NMV1LocPqIVOfk3PFU=" alt="Laptop abd RUby">
                 </div>
-            </div>
+                <div class="form-container column">
+                    <fieldset id="user-form">
+                        <legend>User info</legend>
+                        <form>
+                            <label for="username">Username:</label>
+                            <input type="text" id="username" name="username" required>
             
+                            <label for="email">Email:</label>
+                            <input type="text" id="email" name="email" required>
+            
+                            <label for="form-password">Password:</label>
+                            <input type="password" id="password" name="password">
+            
+                            <input type="submit" value="Get your account" class="btn" id="btn-start">
+                        </form>
+                    </fieldset>
+                    <!-- !users records new and form db -->
+                    <div class="column" id="user-record">
+                        <div id="user-results">
+                            <h5 id="user-username"></h5>
+                            <fieldset id="user-results-fieldset">
+                                <legend >From database:</legend>
+                            </fieldset>
+                            <button id="btn-new-take">New Take</button>
+                            <fieldset id="user-new-results-fieldset">
+                                <legend >New take:</legend>
+                            </fieldset>
+                            <button id="btn-save-db">Save to DB</button>
+
+                        </div>
+                        <!-- <ul id="user-records"></ul> -->
+                    </div>
+                </div>
+            
+            </div>
         </div>
         <!-- !quiz-container -->
         <div class="row" id="quiz-container">
