@@ -13,7 +13,6 @@ class User {
     userDisplayDIv.style.display = "block";
     userDisplayUsername.innerText = `${this.username}` ;
     userForm.style.display = "none";
-    // debugger
     const numOfQuestions = this.takes[0].responses[0].length
     const correctAnswers = this.takes.map(take => {
 
