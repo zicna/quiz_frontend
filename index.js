@@ -1,6 +1,8 @@
 const port = "http://localhost:3000";
+
 const usersCall = new UserService(port);
 const quizCall = new QuizService(port);
+const newTake = new TakeService(port)
 
 //*HTML Elements constants
 // const mainQuizDiv = document.getElementById("main-container");

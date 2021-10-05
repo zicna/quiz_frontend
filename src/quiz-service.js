@@ -12,4 +12,17 @@ class QuizService {
       });
   }
 
+  quizSubmit(event){
+    event.preventDefault();
+    const arrayInputNodes = Array.from(event.target.elements)
+    let arrOfCheckedResponses = []
+
+    for(let input of arrayInputNodes){
+      if(input.type === "radio" && input.checked === true){
+            arrOfCheckedResponses.push(input.response)
+          }
+      }
+    
+  }
+
 }
