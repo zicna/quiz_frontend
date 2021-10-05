@@ -1,111 +1,106 @@
 class Quiz {
-  constructor({ id, name, description }) {
+  constructor({ id, name, description, questions }) {
     this.id = id;
     this.name = name;
     this.description = description;
+    this.questions = questions.map((question) => new Question(question));
   }
+
   appendQuizToDom() {
-    //*creating new button for starting the quiz
-    const buttonStart = document.createElement("button");
-    Object.assign(buttonStart, {
-      id: `btn-start-${this.id}`,
+    // *show quiz container, set quiz anme adn description
+    quizContainer.style.display = "block";
+    quizName.innerText = `${this.name}`;
+    quizDescription.innerText = `${this.description}`;
+    //*iterate through quiz questions and add them to DOM
+    this.questions.map((question) => {
+      const li = document.createElement("li");
+      li.innerText = `${question.content}`;
+      quizQuestionsList.appendChild(li);
+      // * iterate through each question options (create input and labels)
+      question.options.map((option) => {
+        const input = document.createElement("input");
+        Object.assign(input, {
+          type: "radio",
+          response: {
+            option_id: `${option.id}`,
+            question_id: `${option.question_id}`,
+            is_correct: `${option.is_correct}`,
+          },
+          name: `options-for-${option.question_id}`,
+          required: true,
+        });
+        const label = document.createElement("label");
+        label.innerText = `${option.content}`;
+        label.appendChild(input);
+        quizQuestionsList.appendChild(label);
+      });
+    });
+    const inputBtn = document.createElement("input");
+    Object.assign(inputBtn, {
       class: "btn",
-      innerHTML: "Start the Quiz",
-    });
-    buttonStart.addEventListener("click", this.handleQuizStart);
-
-    //* creating new button for showing more info on quiz
-    const buttonAbout = document.createElement("button");
-    Object.assign(buttonAbout, {
-      id: `btn-about-${this.id}`,
-      class: "btn",
-      innerHTML: "About the quiz",
-    });
-    buttonAbout.addEventListener("click", this.handleQuizAbout);
-
-    //* creating div container where all questions for given quiz will live
-    const questionContainer = document.createElement("form");
-    Object.assign(questionContainer, {
-      id: `q-q-${this.id}`,
-      class: "question-container",
-      style: "display:none",
-    });
-    const submit = document.createElement("input");
-    Object.assign(submit, {
       type: "submit",
-      value: "Submit your Answer",
-    });
-    // submit.addEventListener("click", this.handleSubmit);
-    questionContainer.appendChild(submit);
-    questionContainer.addEventListener("submit", this.handleSubmit )
-
-    //* creating main div
-    const div = document.createElement("div");
-    Object.assign(div, {
-      id: `quiz-${this.id}`,
-      class: "quiz-container",
-      innerHTML: `
-        <span style="display:none"> ${this.id}</span>
-        <h4>${this.name}</h4>
-        <p id="p-about-${this.id}"style="display:none">Description: ${this.description}</p>
-        <span style="display:none">${this.category_id}</span>
-      `,
+      value: "Submit Quiz",
     });
 
-    //*  adding all elements to the main div
-    div.appendChild(buttonStart);
-    div.appendChild(buttonAbout);
-    div.appendChild(questionContainer);
-
-    mainQuizDiv.appendChild(div);
+    quizForm.appendChild(inputBtn);
+    quizForm.addEventListener("submit", this.handleQuizSubmit);
   }
 
-  handleQuizStart(event) {
-    //*we want all other quizzes to disappear
-    if (event.target.innerText === "Start the Quiz") {
-      // debugger
-      // event.target.parentElement.lastElementChild
-      event.target.innerText = "Close";
-      const parentEl = event.target.parentElement;
-      parentEl.setAttribute("class", "active");
-      parentEl.lastElementChild.style.display = "block";
-      //* we are calling helper to get all sibilings of parent element of button
-      const siblings = Helper.getAllSiblings(parentEl);
-      //*we are setting style for all buttons parent element siblings to "none" except for actual parent element
-      siblings.map((element) => {
-        if (element !== parentEl) {
-          element.style.display = "none";
+  handleQuizSubmit(event) {
+    event.preventDefault();
+    frontPageDiv.style.display = "block";
+    btnSaveDB.style.display = "block";
+    const checkedInputs = Array.from()
+    let arrNodes = []
+    event.target.elements).filter((input) => {
+        if (input.type === "radio" && input.checked === true) {
+          Object.assign({}, input.response);
         }
-      });
-    } else if (event.target.innerText === "Close") {
-      event.target.innerText = "Start the Quiz";
-      const parentEl = event.target.parentElement;
-      parentEl.classList.remove("active");
-      parentEl.lastElementChild.style.display = "none";
-      const siblings = Helper.getAllSiblings(parentEl);
-      siblings.map((element) => {
-        element.style.display = "block";
-      });
-    }
+      }
+      debugger
+    
+    // let selectedInputs = [];
+    // checkedInputs.forEach((input) => {
+    //   if (input.type === "radio" && input.checked) {
+    //     selectedInputs.push(Object.assign({}, input.response));
+    //   }
+    // });
+
+    quizForm.reset();
+    quizContainer.style.display = "none";
+    userNewResultsFieldset.style.display = "block";
+    let newAnswers = 0;
+    checkedInputs.forEach((response) => {
+      debugger
+      if (response.is_correct === "true") {
+        return ++newAnswers;
+      }
+    });
+    // debugger
+    const div = document.createElement("div");
+    const percentCorrect = Math.round(
+      (newAnswers / checkedInputs.length) * 100
+    );
+    // const btnSave = Object.assign(document.createElement("button"), {
+    //   class: "btn",
+    //   id: "save-new-take",
+    //   innerText: "Save New Take",
+    // });
+    // debugger
+    // btnSave.addEventListener("click", this.newQuiz)
+
+    div.innerHTML = `
+      <p>new take: ${newAnswers} correct answers of ${checkedInputs.length} questions- <span>${percentCorrect} % correct</span>
+      </p>
+    `;
+    // div.appendChild(btnSave)
+    userNewResultsFieldset.appendChild(div);
+
+    btnNewTake.innerText = "Another Try";
+    btnNewTake.style.display = "block";
   }
 
-  handleQuizAbout(event) {
-    if (event.target.innerText === "About the quiz") {
-      event.target.innerText = "See less";
-      const id = Number(this.id.split("-")[2]);
-      const p = document.getElementById(`p-about-${id}`);
-      p.style.display = "block";
-    } else if (event.target.innerText === "See less") {
-      event.target.innerText = "About the quiz";
-      const id = Number(this.id.split("-")[2]);
-      const p = document.getElementById(`p-about-${id}`);
-      p.style.display = "none";
-    }
-  }
-
-  handleSubmit(event) {
-    event.preventDefault()
-
-   
+  newQuiz(event) {
+    debugger;
   }
 }
