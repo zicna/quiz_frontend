@@ -24,6 +24,8 @@ class UserService {
       .then((response) => response.json())
       .then((data) => {
         const user = new User(data);
+        Store.setUser(user)
+        debugger
         user.appendUserToDom();
       });
   }
