@@ -20,7 +20,8 @@ class TakeService {
     fetch(`${this.port}/takes`, configObject)
       .then((response) => response.json())
       .then((data) => {
-        debugger;
+        const newTake = new Take(data)
+        Store.setTake(newTake)
       });
   }
 }

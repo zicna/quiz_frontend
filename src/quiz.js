@@ -24,7 +24,8 @@ class Quiz {
           response: {
             option_id: `${option.id}`,
             question_id: `${option.question_id}`,
-            is_correct: `${option.is_correct}`,
+            // is_correct: `${option.is_correct}`,
+            take_id: Store.getTake().id
           },
           name: `options-for-${option.question_id}`,
           required: true,
@@ -45,4 +46,6 @@ class Quiz {
     quizForm.appendChild(inputBtn);
     quizForm.addEventListener("submit", quizCall.quizSubmit);
   }
+
+  
 }

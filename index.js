@@ -47,6 +47,8 @@ function handleSubmit(event) {
 btnNewTake.addEventListener("click", handleNewTakeClick);
 
 function handleNewTakeClick(event) {
+  // *before new take we clear our local Storage of any 'takes'
+  Store.removeTake()
   takeCall.createNewTake()
   btnNewTake.style.display = "none";
   frontPageDiv.style.display = "none";
@@ -58,3 +60,4 @@ function handleNewTakeClick(event) {
     quizCall.getQuizzes();
   }
 }
+

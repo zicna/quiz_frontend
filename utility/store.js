@@ -7,7 +7,7 @@ class Store {
   static getUser() {
       let user;
       if(localStorage.getItem('user') === null){
-        //!   alert not loggedin
+        //!   alert not logged in
         // user = ""
       }else {
           user = JSON.parse(localStorage.getItem('user'))
@@ -19,7 +19,19 @@ class Store {
       localStorage.removeItem('user')
   }
 
-  static setTake() {}
+  static setTake(take) {
+    localStorage.setItem("take", JSON.stringify(take) )
+  }
+  static getTake(){
+    const take = JSON.parse(localStorage.getItem('take'))
+    return take
+  }
 
-  static removeUser() {}
+  static removeTake() {
+    localStorage.removeItem("take")
+  }
+
+  static clear(){
+    localStorage.clear()
+  }
 }
