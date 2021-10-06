@@ -19,12 +19,9 @@ const userPassword = document.getElementById("password");
 //*HTML const for displaying user
 const userDisplayDIv = document.getElementById("user-record");
 const userDisplayUsername = document.getElementById("user-username");
-const userRecords = document.getElementById("user-records");
 const userResults = document.getElementById("user-results");
 const userResultsFieldset = document.getElementById("user-results-fieldset");
-const userNewResultsFieldset = document.getElementById(
-  "user-new-results-fieldset"
-);
+
 const btnSaveDB = document.getElementById("btn-save-db")
 const btnNewTake = document.getElementById("btn-new-take");
 
@@ -50,14 +47,8 @@ function handleNewTakeClick(event) {
   // *before new take we clear our local Storage of any 'takes'
   Store.removeTake()
   takeCall.createNewTake()
-  btnNewTake.style.display = "none";
   frontPageDiv.style.display = "none";
-  if (event.target.innerText === "Another Try") {
-    frontPageDiv.style.display = "none";
-    quizContainer.style.display = "block"
-
-  }else{
-    quizCall.getQuizzes();
-  }
+  
+  quizCall.getQuizzes();
 }
 
