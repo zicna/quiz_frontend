@@ -2,7 +2,9 @@ const port = "http://localhost:3000";
 
 const usersCall = new UserService(port);
 const quizCall = new QuizService(port);
-// const newTake = new TakeService(port)
+const takeCall = new TakeService(port)
+
+
 
 //*HTML Elements constants
 // const mainQuizDiv = document.getElementById("main-container");
@@ -45,6 +47,7 @@ function handleSubmit(event) {
 btnNewTake.addEventListener("click", handleNewTakeClick);
 
 function handleNewTakeClick(event) {
+  takeCall.createNewTake()
   btnNewTake.style.display = "none";
   frontPageDiv.style.display = "none";
   if (event.target.innerText === "Another Try") {
