@@ -43,7 +43,7 @@ class QuizService {
     fetch(`${quizCall.port}/responses`, configObject)
       .then((response) => response.json())
       .then((data) => {
-        userResultsFieldset.innerHTML = "";
+        userResultList.innerHTML = "";
 
         const user = new User(data);
         Store.setUser(user);
