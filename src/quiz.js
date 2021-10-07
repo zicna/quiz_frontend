@@ -15,7 +15,7 @@ class Quiz {
     //*iterate through quiz questions and add them to DOM
     this.questions.map((question) => {
       const li = document.createElement("li");
-      li.innerText = `${question.content}`;
+      li.innerHTML = `<b>${question.content}</b>`;
       quizQuestionsList.appendChild(li);
       // * iterate through each question options (create input and labels)
       question.options.map((option) => {
