@@ -33,6 +33,7 @@ class User {
       s.innerHTML = `${percentCorrect} % correct`;
       p.appendChild(s);
       userResultsFieldset.appendChild(p);
+      btnNewTake.style.display = "block"
     });
   }
 }
