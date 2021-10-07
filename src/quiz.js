@@ -23,7 +23,6 @@ class Quiz {
         const input = document.createElement("input");
         Object.assign(input, {
           type: "radio",
-          className: "form-control text-secondary",
           response: {
             option_id: `${option.id}`,
             question_id: `${option.question_id}`,
@@ -35,6 +34,7 @@ class Quiz {
         // !creating label for each radio button
 
         const label = document.createElement("label");
+        label.classList.add("text-secondary");
         label.innerText = `${option.content}`;
 
         quizQuestionsList.appendChild(label);
@@ -43,7 +43,7 @@ class Quiz {
     });
     const inputBtn = document.createElement("input");
     Object.assign(inputBtn, {
-      class: "btn btn-lg btn-primary btn-block",
+      className: "btn btn-lg btn-primary btn-block",
       type: "submit",
       value: "Submit Quiz",
     });
