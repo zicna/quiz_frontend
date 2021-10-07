@@ -9,12 +9,8 @@ class Question{
     appendQuestionToDom(){
         const div = document.createElement("div")
         div.setAttribute("id", `question-${this.id}`)
-        // div.setAttribute("style", "display:none")
-        div.innerHTML = `
-            <span style="display:none"> ${this.id}</span>
-            <span>${this.content}</span>
-            <span style="display:none">${this.quiz_id}</span>
-        `
+
+        div.innerHTML = `<span>${this.content}</span>`
         const parentDiv = document.getElementById(`q-q-${this.quiz_id}`)
         parentDiv.appendChild(div)
     }
