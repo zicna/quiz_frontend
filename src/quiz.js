@@ -11,7 +11,7 @@ class Quiz {
     quizContainer.style.display = "block";
     quizName.innerText = `${this.name}`;
     quizDescription.innerText = `${this.description}`;
-    quizQuestionsList.innerHTML = ""
+    quizQuestionsList.innerHTML = "";
     //*iterate through quiz questions and add them to DOM
     this.questions.map((question) => {
       const li = document.createElement("li");
@@ -19,6 +19,7 @@ class Quiz {
       quizQuestionsList.appendChild(li);
       // * iterate through each question options (create input and labels)
       question.options.map((option) => {
+        // !creating radio button for each option of the question
         const input = document.createElement("input");
         Object.assign(input, {
           type: "radio",
@@ -31,10 +32,13 @@ class Quiz {
           name: `options-for-${option.question_id}`,
           required: true,
         });
+        // !creating label for each radio button 
+
         const label = document.createElement("label");
         label.innerText = `${option.content}`;
-        label.appendChild(input);
+
         quizQuestionsList.appendChild(label);
+        quizQuestionsList.appendChild(input);
       });
     });
     const inputBtn = document.createElement("input");

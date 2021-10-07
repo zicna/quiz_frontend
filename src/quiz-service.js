@@ -25,12 +25,6 @@ class QuizService {
         arrOfCheckedResponses.push(input.response);
       }
     }
-    //*for each checked el add key-value pair for what take is it for
-    let newResponses = [];
-    newResponses = arrOfCheckedResponses.map((el) => {
-      el.take_id = Store.getTake().id;
-      return el;
-    });
 
     const configObject = {
       method: "POST",
