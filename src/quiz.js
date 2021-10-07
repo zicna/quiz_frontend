@@ -7,7 +7,7 @@ class Quiz {
   }
 
   appendQuizToDom() {
-    // *show quiz container, set quiz anme adn description
+    // *show quiz container, set quiz name and description
     quizContainer.style.display = "block";
     quizName.innerText = `${this.name}`;
     quizDescription.innerText = `${this.description}`;
@@ -22,11 +22,11 @@ class Quiz {
         const input = document.createElement("input");
         Object.assign(input, {
           type: "radio",
+          class: "form-control",
           response: {
             option_id: `${option.id}`,
             question_id: `${option.question_id}`,
-            // is_correct: `${option.is_correct}`,
-            take_id: Store.getTake().id
+            take_id: Store.getTake().id,
           },
           name: `options-for-${option.question_id}`,
           required: true,
@@ -39,7 +39,7 @@ class Quiz {
     });
     const inputBtn = document.createElement("input");
     Object.assign(inputBtn, {
-      class: "btn",
+      class: "btn btn-lg btn-primary btn-block",
       type: "submit",
       value: "Submit Quiz",
     });
@@ -47,6 +47,4 @@ class Quiz {
     quizForm.appendChild(inputBtn);
     quizForm.addEventListener("submit", quizCall.quizSubmit);
   }
-
-  
 }

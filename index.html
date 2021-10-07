@@ -9,46 +9,62 @@
     <title>Ruby Quiz app</title>
 </head>
 <body>
-    <div class="container">
+    <div class="container mt-4">
         <div id="front-page">
-            <div class="header-conteiner">
-                <h3 class="quiz-header">Ruby Quiz</h3>
-                <h5>check your knowledge of basic programming concepts using the Ruby programming language</h5>
+            <div class="header-container">
+                <h3 class="quiz-header display-4 text-center text-secondary">Ruby Quiz</h3>
+                <h5 class=" text-center text-secondary">check your knowledge of basic programming concepts using the Ruby programming language</h5>
             </div>
             <div class="row">
-                <div class="image-container column">
+                <div class="image-container column mt-5">
                     <img src="https://media.istockphoto.com/photos/ruby-programming-language-picture-id1158224159?k=20&m=1158224159&s=170667a&w=0&h=TOo5iChiq5b-bGggL34mry-61NMV1LocPqIVOfk3PFU=" alt="Laptop abd RUby">
                 </div>
-                <div class="form-container column">
+                <div class="form-group column mt-5">
                     <fieldset id="user-form">
                         <legend>User info</legend>
                         <form>
-                            <div class="form-group">
-                                <label for="username">Username:</label>
-                                <input type="text" id="username" name="username" required>
+
+                            <div class= "form-group">
+                                <label for="username" class="form-label mt-4">Username:</label>
+                                <input type="text" id="username" name="username" class= "form-control" placeholder="Enter Username" required>
                             </div>
             
-                            <div class="form-group">
-                                <label for="email">Email:</label>
-                                <input type="text" id="email" name="email" required>
+                            <div class= "form-group">
+                                <label for="email" class="form-label mt-4">Email:</label>
+                                <input type="text" id="email" name="email" class= "form-control" placeholder="Enter Email" required>
                             </div>
             
-                            <div class="form-group">
-                                <label for="form-password">Password:</label>
-                                <input type="password" id="password" name="password">
+                            <div class= "form-group">
+                                <label for="form-password" class="form-label mt-4">Password:</label>
+                                <input type="password" id="password" name="password" class= "form-control" placeholder="Password">
+
                             </div>
             
-                            <input type="submit" value="Get your account" class="btn" id="btn-start">
+                            <div class="d-grid gap-2">
+                                <input type="submit" value="Get your account" class="btn btn-lg btn-primary btn-block" id="btn-start">
+                            </div>
                         </form>
                     </fieldset>
                     <!-- !users records new and form db -->
                     <div class="column" id="user-record">
                         <!-- !here we need to add table for displaying user results -->
-                        <div id="user-results">
-                            <h5 id="user-username"></h5>
-                            <fieldset id="user-results-fieldset">
-                            </fieldset>
-                            <button id="btn-new-take">New Take</button>
+                        <div id="user-results" class="form-group mt-5">
+                            <h5 id="user-username" class="mt-5"></h5>
+                            <table id="user-results-table" class="table table-hover mt-4">
+                                <thead>
+                                    <tr class="table-secondary">
+                                        <th scope="col" >Take</th>
+                                        <th scope="col" >Correct Answers</th>
+                                        <th scope="col" >Total questions</th>
+                                        <th scope="col" >Success rate </th>
+                                        <th scope="col" ></th>
+                                    </tr>
+                                </thead>
+                                <tbody id="user-result-list">
+
+                                </tbody>
+                            </table>
+                            <button id="btn-new-take" class="btn btn-lg btn-primary btn-block">New Take</button>
                         </div>
                     </div>
                 </div>
@@ -63,20 +79,21 @@
                 </ol>
             </form>
         </div>
-        <div class="footer-container">
+        <div class="footer-container mt-5">
             <h5>Footer</h5>
         </div>
     </div>
     <script src="utility/store.js"></script>
     <script src="src/response.js"></script>
-    <script src="src/take.js"></script>
-    <script src="src/take-service.js"></script>
-    <script src="src/user.js"></script>
-    <script src="src/user-service.js"></script>
     <script src="src/option.js"></script>
     <script src="src/question.js"></script>
+    <script src="src/user.js"></script>
+    <script src="src/user-service.js"></script>
+    <script src="src/take.js"></script>
+    <script src="src/take-service.js"></script>
     <script src="src/quiz.js"></script>
-    <script src="src/quiz-service.js"></script>    
+    <script src="src/quiz-service.js"></script> 
+    
     <script src="index.js"></script>
 </body>
 </html>
