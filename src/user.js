@@ -37,6 +37,7 @@ class User {
       `
       
       userResultList.appendChild(row);
+
     });
   }
 }
