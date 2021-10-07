@@ -36,7 +36,7 @@ class User {
         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
       `
       
-      userResultsTable.appendChild(row);
+      userResultList.appendChild(row);
     });
   }
 }
