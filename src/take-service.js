@@ -20,8 +20,16 @@ class TakeService {
     fetch(`${this.port}/takes`, configObject)
       .then((response) => response.json())
       .then((data) => {
-        const newTake = new Take(data)
-        Store.setTake(newTake)
+        const newTake = new Take(data);
+        Store.setTake(newTake);
+      });
+  }
+
+  deleteTakeDB(take_id) {
+    fetch(`${this.port}/takes/${take_id}`, { method: "DELETE" })
+      .then((response) => response.json())
+      .then((data) => {
+        alert(data["message"]["notice"]);
       });
   }
 }
