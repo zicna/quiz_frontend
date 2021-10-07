@@ -20,7 +20,9 @@ const userPassword = document.getElementById("password");
 const userDisplayDIv = document.getElementById("user-record");
 const userDisplayUsername = document.getElementById("user-username");
 const userResults = document.getElementById("user-results");
-const userResultsFieldset = document.getElementById("user-results-fieldset");
+const userResultsTable = document.getElementById("user-results-table");
+// !new variable added
+const userResultList = document.getElementById("user-result-list")
 
 const btnSaveDB = document.getElementById("btn-save-db")
 const btnNewTake = document.getElementById("btn-new-take");
