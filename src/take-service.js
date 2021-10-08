@@ -26,10 +26,11 @@ class TakeService {
   }
 
   deleteTakeDB(take_id) {
+    debugger
     fetch(`${this.port}/takes/${take_id}`, { method: "DELETE" })
       .then((response) => response.json())
       .then((data) => {
-        alert(data["message"]["notice"]);
+        Notification.showAlert(data["message"]["notice"],"info")
       });
   }
 }
