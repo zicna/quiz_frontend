@@ -12,6 +12,7 @@ class Quiz {
     quizName.innerText = `${this.name}`;
     quizDescription.innerText = `${this.description}`;
     quizQuestionsList.innerHTML = "";
+    // quizQuestionsList.nextElementSibling.remove();
     //*iterate through quiz questions and add them to DOM
     this.questions.map((question) => {
       const li = document.createElement("li");
@@ -23,6 +24,7 @@ class Quiz {
         const input = document.createElement("input");
         Object.assign(input, {
           type: "radio",
+          className: "form-check-input",
           response: {
             option_id: `${option.id}`,
             question_id: `${option.question_id}`,
@@ -35,20 +37,24 @@ class Quiz {
 
         const label = document.createElement("label");
         label.classList.add("text-secondary");
+        label.classList.add("form-check-label");
         label.innerText = `${option.content}`;
 
-        quizQuestionsList.appendChild(label);
         quizQuestionsList.appendChild(input);
+        quizQuestionsList.appendChild(label);
+        quizQuestionsList.appendChild(document.createElement("hr"));
       });
     });
     const inputBtn = document.createElement("input");
     Object.assign(inputBtn, {
       className: "btn btn-lg btn-primary btn-block",
+      id: "quiz-submit",
       type: "submit",
       value: "Submit Quiz",
     });
-    // inputBtn.addEventListener("click", quizCall.quizSubmit)
-    quizForm.appendChild(inputBtn);
+    if (!document.getElementById("quiz-submit")) {
+      quizForm.appendChild(inputBtn);
+    }
     quizForm.addEventListener("submit", quizCall.quizSubmit);
   }
 }

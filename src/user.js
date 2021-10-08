@@ -10,7 +10,7 @@ class User {
   }
   appendUserToDom() {
     userDisplayDIv.style.display = "block";
-    userDisplayUsername.innerText = `${this.username}`;
+    userDisplayUsername.innerHTML = `<span class="text-primary" style="font-size: 2em;"><i class="far fa-user"></i><span>${this.username}`;
     userForm.style.display = "none";
 
     // !we need to set data attribute for each row that will represent take id so we can target that take and delete it from db
