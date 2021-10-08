@@ -1,3 +1,5 @@
+// !this whole class is NOT being used
+
 class Response{
     constructor({id, take_id, option_id, question_id, content, is_true, url_explanation}){
         this.id = id
