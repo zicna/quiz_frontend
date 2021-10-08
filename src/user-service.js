@@ -25,6 +25,8 @@ class UserService {
       .then((data) => {
         const user = new User(data);
         Store.setUser(user)
+      Notification.showAlert("Hello", "success");
+
         user.appendUserToDom();
       });
   }
