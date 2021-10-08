@@ -16,9 +16,11 @@ class QuizService {
     event.preventDefault();
     quizContainer.style.display = "none";
     frontPageDiv.style.display = "block";
+
     //*get html collection of all child elements of form and turn it to array of html elements
     const arrayInputNodes = Array.from(event.target.elements);
     let arrOfCheckedResponses = [];
+
     //*iterate through and get only elemets that user checked
     for (let input of arrayInputNodes) {
       if (input.type === "radio" && input.checked === true) {
@@ -32,17 +34,16 @@ class QuizService {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
-      body: JSON.stringify(newResponses),
+      body: JSON.stringify(arrOfCheckedResponses),
     };
     fetch(`${quizCall.port}/responses`, configObject)
       .then((response) => response.json())
       .then((data) => {
         userResultList.innerHTML = "";
-
+        Notification.showAlert("Quiz submition was successfull", "success");
         const user = new User(data);
         Store.setUser(user);
         user.appendUserToDom();
       });
   }
-  
 }

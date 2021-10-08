@@ -30,7 +30,6 @@ class User {
       `;
       userResultList.appendChild(row);
     });
-    Notification.showAlert(`Hello ${this.username}. We are glad to have you here. Please, Enjoy!`, "success");
 
   }
 }

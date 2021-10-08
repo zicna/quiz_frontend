@@ -20,13 +20,13 @@ class TakeService {
     fetch(`${this.port}/takes`, configObject)
       .then((response) => response.json())
       .then((data) => {
+        // !this is not needed???
         const newTake = new Take(data);
         Store.setTake(newTake);
       });
   }
 
   deleteTakeDB(take_id) {
-    debugger
     fetch(`${this.port}/takes/${take_id}`, { method: "DELETE" })
       .then((response) => response.json())
       .then((data) => {
