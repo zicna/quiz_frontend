@@ -8,6 +8,7 @@ const takeCall = new TakeService(port);
 // const mainQuizDiv = document.getElementById("main-container");
 const frontPageDiv = document.getElementById("front-page");
 
+const alertContainer = document.getElementById("alert-container")
 const startQuiz = document.getElementById("btn-start");
 const userForm = document.getElementById("user-form");
 const username = document.getElementById("username");
