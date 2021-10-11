@@ -70,44 +70,7 @@ ___
 
 ## Credits
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Great help for this app to see light of the day goes to [Candice Peaters](https://github.com/candicelizabeth).
 
 
 
