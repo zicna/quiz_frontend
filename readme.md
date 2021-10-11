@@ -41,6 +41,7 @@ The frontend part will allow us to log in or create a user who can look up if re
   ```
   bundle install 
   rails db:create
+  rails db:migrate
   rails db:seed
   rails server
   ```
