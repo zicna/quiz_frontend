@@ -1,5 +1,5 @@
 class Store {
-  // *once user is 'logged in' we need to persist his credential
+  // *once user is 'logged in' we need to persist his id
   static setUser(user) {
     localStorage.setItem("user", JSON.stringify(user));
   }
