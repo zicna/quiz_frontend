@@ -76,3 +76,7 @@ Great help for this app to see light of the day goes to [Candice Peaters](https:
 
 
 ## License
+MIT License
+
+Copyright (c) 2021 Milan Zivkovic
+See more on LICENSE.md file
