@@ -9,6 +9,7 @@ class User {
     });
   }
   appendUserToDom() {
+    userResultList.innerHTML = "";
     userDisplayDIv.style.display = "block";
     userDisplayUsername.innerHTML = `<span class="text-primary" style="font-size: 2em;"><i class="far fa-user"></i><span>${this.username}`;
     userForm.style.display = "none";
@@ -30,6 +31,5 @@ class User {
       `;
       userResultList.appendChild(row);
     });
-
   }
 }

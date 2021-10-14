@@ -28,6 +28,16 @@ const quizName = document.getElementById("quiz-name");
 const quizDescription = document.getElementById("quiz-description");
 const quizQuestionsList = document.getElementById("quiz-questions-list");
 
+const sort = document.getElementById("sort-succes");
+
+sort.addEventListener("click", handleSort);
+
+function handleSort(e) {
+  const userOne = new User(Store.getUser());
+  userOne.takes.sort((a,b)=> b.num_correct_answers - a.num_correct_answers)
+  userOne.appendUserToDom()
+}
+
 userForm.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
