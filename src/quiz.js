@@ -12,7 +12,7 @@ class Quiz {
     quizName.innerText = `${this.name}`;
     quizDescription.innerText = `${this.description}`;
     quizQuestionsList.innerHTML = "";
-    // quizQuestionsList.nextElementSibling.remove();
+    
     //*iterate through quiz questions and add them to DOM
     this.questions.map((question) => {
       const li = document.createElement("li");

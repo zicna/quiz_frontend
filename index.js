@@ -5,7 +5,6 @@ const quizCall = new QuizService(port);
 const takeCall = new TakeService(port);
 
 //*HTML Elements constants
-// const mainQuizDiv = document.getElementById("main-container");
 const frontPageDiv = document.getElementById("front-page");
 const startQuiz = document.getElementById("btn-start");
 const userForm = document.getElementById("user-form");
@@ -18,9 +17,7 @@ const userDisplayDIv = document.getElementById("user-record");
 const userDisplayUsername = document.getElementById("user-username");
 const userResults = document.getElementById("user-results");
 const userResultsTable = document.getElementById("user-results-table");
-// !new variable added
 const userResultList = document.getElementById("user-result-list");
-
 const btnSaveDB = document.getElementById("btn-save-db");
 const btnNewTake = document.getElementById("btn-new-take");
 
@@ -43,7 +40,6 @@ function handleSubmit(event) {
 btnNewTake.addEventListener("click", handleNewTakeClick);
 
 function handleNewTakeClick(event) {
-  // *before new take we clear our local Storage of any 'takes'
   Store.removeTake();
   takeCall.createNewTake();
   frontPageDiv.style.display = "none";
