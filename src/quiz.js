@@ -22,7 +22,7 @@ class Quiz {
       question.options.map((option) => {
         // !creating radio button for each option of the question
         const input = document.createElement("input");
-        Object.assign(input, {
+        Object.assign(input, {  
           type: "radio",
           className: "form-check-input",
           response: {
