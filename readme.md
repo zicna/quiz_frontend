@@ -42,7 +42,7 @@ The server side of this application if build with Ruby on Rails and postgreSQL a
 #### Database
 
 Database used for this application is postgreSQL.
-![Database Schema](../quiz_backend/public/Quiz_app%20final%20db%20setup.jpeg)
+![Database Schema](./Quiz_app%20final%20db%20setup.jpeg)
 *<p align="center"> Database schema </p>*
 ### Front-end
 Front-end is written in vanilla JavaScript, utilizing JS6 syntax and in an OOP manner utilizing prototypal inheritance.  
