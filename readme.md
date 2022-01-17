@@ -95,6 +95,7 @@ ___
 - [x] Fix readme.md file
 - [ ] Adding user validation
 - [ ] Styling for quiz questions
+- [ ] Error handeling if server side is not running
 ___
 ## Bugs
 1. Once ```new take``` is created if we hit refresh take will stay with nothing selected therefore it will appear as the user had ```take``` with no correct answers
