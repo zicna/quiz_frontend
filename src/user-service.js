@@ -7,7 +7,8 @@ class UserService {
     const userInfo = {
       user: {
         username: username.value,
-        userEmail: userEmail.value,
+        email: userEmail.value,
+        password: userPassword.value
       },
     };
 

@@ -1,4 +1,4 @@
-const port = "http://localhost:3000";
+const port = "http://localhost:3000/api/v1";
 
 const usersCall = new UserService(port);
 const quizCall = new QuizService(port);
