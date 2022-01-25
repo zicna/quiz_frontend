@@ -1,6 +1,6 @@
 class UserService {
   constructor(port) {
-    this.url = port + "/users";
+    this.url = port + '/users'
   }
 
   getUser() {
@@ -8,27 +8,32 @@ class UserService {
       user: {
         username: username.value,
         email: userEmail.value,
-        password: userPassword.value
+        password: userPassword.value,
       },
-    };
+    }
 
     const configObject = {
-      method: "POST",
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
       },
       body: JSON.stringify(userInfo),
-    };
+    }
 
     fetch(this.url, configObject)
       .then((response) => response.json())
       .then((data) => {
-        const user = new User(data);
+        console.log(data)
+        debugger
+        const user = new User(data)
         Store.setUser(user)
-        Notification.showAlert(`Hello ${user.username}. We are glad to have you here. Please, Enjoy!`, "success");
+        Notification.showAlert(
+          `Hello ${user.username}. We are glad to have you here. Please, Enjoy!`,
+          'success'
+        )
 
-        user.appendUserToDom();
-      });
+        user.appendUserToDom()
+      })
   }
 }

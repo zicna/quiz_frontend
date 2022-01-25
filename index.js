@@ -11,6 +11,10 @@ const userForm = document.getElementById("user-form");
 const username = document.getElementById("username");
 const userEmail = document.getElementById("email");
 const userPassword = document.getElementById("password");
+const btnLogin= document.getElementById("btn-login");
+const btnSignUp= document.getElementById("btn-sign-up");
+const formLogin= document.getElementById("form-login");
+const formSignUp= document.getElementById("form-sign-up");
 
 //*HTML const for displaying user
 const userDisplayDIv = document.getElementById("user-record");

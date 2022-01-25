@@ -36,9 +36,62 @@
             />
           </div>
           <div class="form-group column mt-5">
+            <button id="btn-login">Log In</button>
+            <button id="btn-sign-up">Create New Account</button>
+            <hr>
             <fieldset id="user-form">
-              <legend>User info</legend>
-              <form>
+              <legend>User Sign Up</legend>
+              <form id="form-sign-up">
+                <div class="form-group">
+                  <label for="username" class="form-label mt-4"
+                    >Username:</label
+                  >
+                  <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="form-control"
+                    placeholder="Enter Username"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label mt-4">Email:</label>
+                  <input
+                    type="text"
+                    id="email"
+                    name="email"
+                    class="form-control"
+                    placeholder="Enter Email"
+                    required
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="form-password" class="form-label mt-4"
+                    >Password:</label
+                  >
+                  <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="form-control"
+                    placeholder="Password not needed at this point"
+                  />
+                </div>
+
+                <div class="d-grid gap-2">
+                  <input
+                    type="submit"
+                    value="Get your account"
+                    class="btn btn-lg btn-primary btn-block mt-4"
+                    id="btn-start"
+                  />
+                </div>
+              </form>
+              <legend>User Login</legend>
+              <form id="form-login">
                 <div class="form-group">
                   <label for="username" class="form-label mt-4"
                     >Username:</label
