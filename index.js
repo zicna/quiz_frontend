@@ -1,68 +1,74 @@
-const port = "http://localhost:3000/api/v1";
+const port = 'http://localhost:3000/api/v1'
 
-const usersCall = new UserService(port);
-const quizCall = new QuizService(port);
-const takeCall = new TakeService(port);
+const usersCall = new UserService(port)
+const quizCall = new QuizService(port)
+const takeCall = new TakeService(port)
 
 //*HTML Elements constants
-const frontPageDiv = document.getElementById("front-page");
-const startQuiz = document.getElementById("btn-start");
-const userForm = document.getElementById("user-form");
-const username = document.getElementById("username");
-const userEmail = document.getElementById("email");
-const userPassword = document.getElementById("password");
-const btnLogin= document.getElementById("btn-login");
-const btnSignUp= document.getElementById("btn-sign-up");
-const formLogin= document.getElementById("form-login");
-const formSignUp= document.getElementById("form-sign-up");
+const frontPageDiv = document.getElementById('front-page')
+const startQuiz = document.getElementById('btn-start')
+// * buttons for loggin / sign-up
+const btnShowLogin = document.getElementById('btn-show-login')
+const btnShowSignUp = document.getElementById('btn-show-sign-up')
+// * user sign-up form and inputs
+const formSignUp = document.getElementById('form-sign-up')
+const username = document.getElementById('username-sign-up')
+const userEmail = document.getElementById('email-sign-up')
+const userPassword = document.getElementById('password-sign-up')
+const btnSignUp = document.getElementById('btn-sign-up')
+// * user log-in
+const formLogin = document.getElementById('form-login')
+const usernameLogin = document.getElementById("username-login")
+const userPasswordLogin = document.getElementById("password-login")
+const btnLogin = document.getElementById("btn-login")
 
 //*HTML const for displaying user
-const userDisplayDIv = document.getElementById("user-record");
-const userDisplayUsername = document.getElementById("user-username");
-const userResults = document.getElementById("user-results");
-const userResultsTable = document.getElementById("user-results-table");
-const userResultList = document.getElementById("user-result-list");
-const btnSaveDB = document.getElementById("btn-save-db");
-const btnNewTake = document.getElementById("btn-new-take");
+const userDisplayDIv = document.getElementById('user-record')
+const userDisplayUsername = document.getElementById('user-username')
+const userResults = document.getElementById('user-results')
+const userResultsTable = document.getElementById('user-results-table')
+const userResultList = document.getElementById('user-result-list')
+const btnSaveDB = document.getElementById('btn-save-db')
+const btnNewTake = document.getElementById('btn-new-take')
 
 // * HTML const for rendering quiz
-const quizContainer = document.getElementById("quiz-container");
-const quizForm = document.getElementById("quiz-form");
-const quizName = document.getElementById("quiz-name");
-const quizDescription = document.getElementById("quiz-description");
-const quizQuestionsList = document.getElementById("quiz-questions-list");
+const quizContainer = document.getElementById('quiz-container')
+const quizForm = document.getElementById('quiz-form')
+const quizName = document.getElementById('quiz-name')
+const quizDescription = document.getElementById('quiz-description')
+const quizQuestionsList = document.getElementById('quiz-questions-list')
 
-const sort = document.getElementById("sort-succes");
+const sort = document.getElementById('sort-succes')
 
-sort.addEventListener("click", handleSort);
+sort.addEventListener('click', handleSort)
 
 function handleSort(e) {
-  const userOne = new User(Store.getUser());
-  userOne.takes.sort((a,b)=> b.num_correct_answers - a.num_correct_answers)
+  const userOne = new User(Store.getUser())
+  userOne.takes.sort((a, b) => b.num_correct_answers - a.num_correct_answers)
   userOne.appendUserToDom()
 }
 
-userForm.addEventListener("submit", handleSubmit);
+userForm.addEventListener('submit', handleSubmit)
 
 function handleSubmit(event) {
-  event.preventDefault();
+  event.preventDefault()
 
-  usersCall.getUser();
-  event.target.reset();
+  usersCall.getUser()
+  event.target.reset()
 }
 
-btnNewTake.addEventListener("click", handleNewTakeClick);
+btnNewTake.addEventListener('click', handleNewTakeClick)
 
 function handleNewTakeClick(event) {
-  Store.removeTake();
-  takeCall.createNewTake();
-  frontPageDiv.style.display = "none";
+  Store.removeTake()
+  takeCall.createNewTake()
+  frontPageDiv.style.display = 'none'
 
-  quizCall.getQuizzes();
+  quizCall.getQuizzes()
 }
 
-userResultList.addEventListener("click", removeTake);
+userResultList.addEventListener('click', removeTake)
 
 function removeTake(e) {
-  Take.deleteTakeDOM(e.target);
+  Take.deleteTakeDOM(e.target)
 }
