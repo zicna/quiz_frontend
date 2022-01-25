@@ -47,5 +47,15 @@
   display: none;
 }
 
+/* * both forms intial dipaly="none" */
+
+#form-sign-up {
+  display: none;
+}
+
+#form-login {
+  display: none;
+}
+
 
 
