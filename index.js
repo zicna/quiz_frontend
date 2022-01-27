@@ -10,6 +10,7 @@ const startQuiz = document.getElementById('btn-start')
 // * buttons for loggin / sign-up
 const btnShowLogin = document.getElementById('btn-show-login')
 const btnShowSignUp = document.getElementById('btn-show-sign-up')
+const btnBackToStart = document.getElementById('btn-back-to-start')
 // * user sign-up form and inputs
 const formSignUp = document.getElementById('form-sign-up')
 const username = document.getElementById('username-sign-up')
@@ -38,6 +39,8 @@ const quizName = document.getElementById('quiz-name')
 const quizDescription = document.getElementById('quiz-description')
 const quizQuestionsList = document.getElementById('quiz-questions-list')
 
+// ! *********************************************************************
+// ! live coding 
 const sort = document.getElementById('sort-succes')
 
 sort.addEventListener('click', handleSort)
@@ -46,6 +49,35 @@ function handleSort(e) {
   const userOne = new User(Store.getUser())
   userOne.takes.sort((a, b) => b.num_correct_answers - a.num_correct_answers)
   userOne.appendUserToDom()
+}
+// ! *********************************************************************
+btnShowLogin.addEventListener('click', handleLogin)
+
+function handleLogin(){
+  btnShowLogin.style.display = "none"
+  btnShowSignUp.style.display ="none"
+  formLogin.style.display = "block"
+  btnBackToStart.style.display = "block"
+}
+
+btnShowSignUp.addEventListener('click', handleSignUp)
+
+function handleSignUp(){
+  btnShowLogin.style.display = "none"
+  btnShowSignUp.style.display ="none"
+  formSignUp.style.display = "block"
+  btnBackToStart.style.display = "block"
+}
+
+btnBackToStart.addEventListener('click', backToStart)
+
+function backToStart(){
+  console.log('back was clicked')
+  btnShowLogin.style.display = "block"
+  btnShowSignUp.style.display ="block"
+  formSignUp.style.display = "none"
+  formLogin.style.display = "none"
+  btnBackToStart.style.display = "none"
 }
 
 userForm.addEventListener('submit', handleSubmit)
